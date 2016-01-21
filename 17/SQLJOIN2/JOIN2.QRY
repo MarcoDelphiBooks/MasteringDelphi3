@@ -1,0 +1,50 @@
+Ver 2.0,QBE - Integra Visual Database Builder,0, 0, 1600, 1160,,,,,
+1, , - Distinct & Quote,,,,,
+    6, - Number of Tables,-1, -1, 799, 599, 791, 311,,,,
+DEPARTMENT,DEPARTMENT,536, 4, 730, 142,,,,,
+EMPLOYEE_PROJECT,EMPLOYEE_PROJECT,184, 16, 329, 97,,,,,
+EMPLOYEE,EMPLOYEE,375, 27, 496, 257,,,,,
+PROJECT,PROJECT,7, 64, 158, 175,,,,,
+PHONE_LIST,PHONE_LIST,178, 125, 350, 248,,,,,
+JOB,JOB,534, 145, 730, 292,,,,,
+    6, - Number of Columns,,,,,,
+PROJ_NAME,PROJECT,                  65,     , ,,1,
+     , - Number of Criteria,,,,,,
+PRODUCT,PROJECT,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+LAST_NAME,PHONE_LIST,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+FULL_NAME,EMPLOYEE,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+JOB_TITLE,JOB,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+DEPARTMENT,DEPARTMENT,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+    5, - Number of Joins,,,,,,
+JOB_CODE,EMPLOYEE,JOB_CODE,JOB,          ,          ,,
+DEPT_NO,EMPLOYEE,DEPT_NO,DEPARTMENT,          ,          ,,
+EMP_NO,EMPLOYEE_PROJECT,EMP_NO,EMPLOYEE,          ,          ,,
+PROJ_ID,PROJECT,PROJ_ID,EMPLOYEE_PROJECT,          ,          ,,
+TEAM_LEADER,PROJECT,EMP_NO,PHONE_LIST,          ,          ,,
+
+"SELECT Statement"
+,,,,,,,
+SELECT	 DISTINCT PROJECT.PROJ_NAME , PROJECT.PRODUCT , 
+	PHONE_LIST.LAST_NAME , 
+	EMPLOYEE.FULL_NAME , JOB.JOB_TITLE , 
+	DEPARTMENT.DEPARTMENT
+FROM	DEPARTMENT DEPARTMENT , EMPLOYEE_PROJECT EMPLOYEE_PROJECT , 
+	EMPLOYEE EMPLOYEE , PROJECT PROJECT , 
+	PHONE_LIST PHONE_LIST , JOB JOB
+WHERE	( EMPLOYEE.JOB_CODE = JOB.JOB_CODE )
+		AND
+	( EMPLOYEE.DEPT_NO = DEPARTMENT.DEPT_NO )
+		AND
+	( EMPLOYEE_PROJECT.EMP_NO = EMPLOYEE.EMP_NO )
+		AND
+	( PROJECT.PROJ_ID = EMPLOYEE_PROJECT.PROJ_ID )
+		AND
+	( PROJEC,,,,,,,
+T.TEAM_LEADER = PHONE_LIST.EMP_NO )
+ORDER BY
+	PROJECT.PROJ_NAME,,,,,,,

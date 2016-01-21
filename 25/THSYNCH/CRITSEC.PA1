@@ -1,0 +1,106 @@
+unit CritSec;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls;
+
+type
+  TListThread = class (TThread)
+  private
+    Str: String;
+  protected
+    procedure Execute; override;
+  public
+    LBox: TListBox;
+  end;
+
+  TForm3 = class(TForm)
+    ListBox1: TListBox;
+    ListBox2: TListBox;
+    Button1: TButton;
+    CheckBox1: TCheckBox;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure CheckBox1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    Th1, Th2: TListThread;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+  First: Char = 'A';
+  Second: Char = 'A';
+  bSleep: Boolean = False;
+  Critical1: TRTLCriticalSection;  
+
+implementation
+
+{$R *.DFM}
+
+//   TListThread = class (TThread)
+
+procedure TListThread.Execute;
+var
+  I: Integer;
+begin
+  EnterCriticalSection (Critical1);
+  for I := 0 to 500 do
+  begin
+    Inc (Second);
+    if Second > 'Z' then
+    begin
+      Inc (First);
+      Second := 'A';
+      if First > 'Z' then
+        First := 'A';
+    end;
+    Str := First + Second;
+    if Assigned (LBox) then
+      LBox.Items.Add (Str);
+    if bSleep then
+      Sleep (10);
+  end;
+  LeaveCriticalSection (Critical1);
+end;
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+  ListBox1.Clear;
+  ListBox2.Clear;
+  Th1 := TListThread.Create (True);
+  Th2 := TListThread.Create (True);
+  Th1.LBox := Listbox1;
+  Th2.LBox := Listbox2;
+  Th1.Resume;
+  Th2.Resume;
+end;
+
+procedure TForm3.CheckBox1Click(Sender: TObject);
+begin
+  bSleep := not bSleep;
+end;
+
+procedure TForm3.Button2Click(Sender: TObject);
+begin
+  First := 'A';
+  Second := 'A';
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+  InitializeCriticalSection (Critical1);
+end;
+
+procedure TForm3.FormDestroy(Sender: TObject);
+begin
+  DeleteCriticalSection (Critical1);
+end;
+
+end.

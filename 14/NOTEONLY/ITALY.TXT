@@ -1,0 +1,334 @@
+object Form1: TForm1
+  Left = 205
+  Top = 107
+  ActiveControl = Notebook1
+  Caption = 'Italy, Italy'
+  Font.Height = -13
+  Font.Name = 'System'
+  PixelsPerInch = 96
+  ClientHeight = 335
+  ClientWidth = 468
+  object Notebook1: TNotebook
+    Width = 468
+    Height = 280
+    TabOrder = 0
+    Align = alClient
+    object TPage
+      Caption = 'Cover'
+      object Label1: TLabel
+        Left = 9
+        Top = 8
+        Width = 449
+        Height = 217
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'A travel to Italy'
+        Font.Color = 16711935
+        Font.Height = -96
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object ButtonStart: TButton
+        Left = 176
+        Top = 240
+        Width = 105
+        Height = 33
+        TabOrder = 0
+        Caption = 'Start'
+        OnClick = ButtonStartClick
+      end
+    end
+    object TPage
+      Caption = 'Intro'
+      object Memo1: TMemo
+        Left = 16
+        Top = 16
+        Width = 433
+        Height = 193
+        TabOrder = 0
+        TabStop = True
+        AutoSize = False
+        Font.Color = 0
+        Font.Height = -19
+        Font.Name = 'Arial'
+        ParentFont = False
+        ReadOnly = True
+        Text = 'History, art, food, nature, cities: '#13#10'These are just few of the reasons to come to Italy.'#13#10#13#10'Even been to Rome, Venice or Florence? '#13#10'You should.'#13#10'And what about Pisa'#39's leaning tower, '#13#10'Milan'#39's Duomo, the gulf of Neaples, '#13#10'the temples of Sicily?'#13#10#13#10#13#10
+        Lines.Strings = (
+          'History, art, food, nature, cities: '
+          'These are just few of the reasons to come to Italy.'
+          ''
+          'Even been to Rome, Venice or Florence? '
+          'You should.'
+          'And what about Pisa'#39's leaning tower, '
+          'Milan'#39's Duomo, the gulf of Neaples, '
+          'the temples of Sicily?'
+          ''
+          '')
+      end
+      object ButtonGo: TButton
+        Left = 157
+        Top = 224
+        Width = 153
+        Height = 41
+        TabOrder = 1
+        Caption = 'Ok, I'#39'm sure I'#39'll go'
+        OnClick = ButtonGoClick
+      end
+    end
+    object TPage
+      Caption = 'Choose'
+      object Label2: TLabel
+        Left = 32
+        Top = 55
+        Width = 201
+        Height = 169
+        AutoSize = False
+        Caption = 'Do you prefer to have more information on the most famous cities or to know about other smaller but interesting towns and natural places?'
+        Font.Color = 0
+        Font.Height = -19
+        Font.Name = 'Arial'
+        ParentFont = False
+      end
+      object ButtonFamous: TButton
+        Left = 312
+        Top = 56
+        Width = 113
+        Height = 41
+        TabOrder = 0
+        Caption = 'Famous'
+        OnClick = ButtonFamousClick
+      end
+      object ButtonOther: TButton
+        Left = 312
+        Top = 160
+        Width = 113
+        Height = 41
+        TabOrder = 1
+        Caption = 'Other'
+        OnClick = ButtonOtherClick
+      end
+    end
+    object TPage
+      Caption = 'InfoA'
+      object Memo2: TMemo
+        Left = 30
+        Top = 16
+        Width = 408
+        Height = 201
+        TabOrder = 0
+        TabStop = True
+        AutoSize = False
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ReadOnly = True
+        Text = 'In Rome: the Colosseum, the Imperial Forum, '#13#10'the Seven Hills, the Trevi Fountain, Piazza Navona, '#13#10'St. Peter'#39's  Church, the Sistina Chapel and '#13#10'the Vatican Museums.'#13#10'In Venice: San Marco Square and Church, '#13#10'the Palazzo dei Dogi, the Canal Grande,'#13#10'the '
+        Lines.Strings = (
+          'In Rome: the Colosseum, the Imperial Forum, '
+          'the Seven Hills, the Trevi Fountain, Piazza Navona, '
+          'St. Peter'#39's  Church, the Sistina Chapel and '
+          'the Vatican Museums.'
+          'In Venice: San Marco Square and Church, '
+          'the Palazzo dei Dogi, the Canal Grande,'
+          'the Rialto Bridge, the streets and canals.'
+          'In Florence: the churches of Santa Maria del Fiore '
+          'and Santa Maria Novella, Novella, the Uffizi Mesuem,'
+          'Piazza della Signoria.'
+          ''
+          '')
+      end
+      object ButtonFine: TButton
+        Left = 170
+        Top = 232
+        Width = 128
+        Height = 33
+        TabOrder = 1
+        Caption = 'Fine, go on'
+        OnClick = ButtonFineClick
+      end
+    end
+    object TPage
+      Caption = 'InfoB'
+      object Memo3: TMemo
+        Left = 32
+        Top = 16
+        Width = 409
+        Height = 201
+        TabOrder = 0
+        TabStop = True
+        AutoSize = False
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ReadOnly = True
+        Text = 'Milan: the Duomo and the Scala Theater'#13#10'Neaples: the gulf and the Vesuvium'#13#10'Pisa: the Leaning Tower and the Miracles Square'#13#10'Palermo: the Palatina Chapel and Monreale'#13#10'The Alps: the Dolomites and the Mont Blanc'#13#10'Verona: the Arena and the House of Giuliett'
+        Lines.Strings = (
+          'Milan: the Duomo and the Scala Theater'
+          'Neaples: the gulf and the Vesuvium'
+          'Pisa: the Leaning Tower and the Miracles Square'
+          'Palermo: the Palatina Chapel and Monreale'
+          'The Alps: the Dolomites and the Mont Blanc'
+          'Verona: the Arena and the House of Giulietta'
+          ''
+          'Other towns: Siena, Assisi, Pompei, Agrigento, '
+          'Bologna, Turin, Padua, Mantua, Genoa, Orvieto,'
+          'Parma, Caserta, Amalfi, Perugia, San Giminiano.'
+          ''
+          '')
+      end
+      object ButtonFine2: TButton
+        Left = 175
+        Top = 236
+        Width = 118
+        Height = 33
+        TabOrder = 1
+        Caption = 'Fine, go on'
+        OnClick = ButtonFineClick
+      end
+    end
+    object TPage
+      Caption = 'Conclusion'
+      object Label3: TLabel
+        Left = 48
+        Top = 16
+        Width = 233
+        Height = 57
+        AutoSize = False
+        Caption = 'If you are not sure  you might go back and see the information again'
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label4: TLabel
+        Left = 48
+        Top = 96
+        Width = 241
+        Height = 49
+        AutoSize = False
+        Caption = 'Otherwise I hope you will enjoy you'#39're travel. '
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label5: TLabel
+        Left = 48
+        Top = 176
+        Width = 369
+        Height = 57
+        AutoSize = False
+        Caption = 'Disclaimer 1:   Italy is known as the country of the hundred towns, so I could not mention all of them (including my own town).'
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+      end
+      object Label6: TLabel
+        Left = 48
+        Top = 224
+        Width = 336
+        Height = 49
+        AutoSize = False
+        Caption = 'Diclaimer 2:   I know this is somewhat unfair, but I though this was a good  topic for a presentation.'
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+      end
+      object ButtonInfo: TButton
+        Left = 320
+        Top = 24
+        Width = 89
+        Height = 33
+        TabOrder = 0
+        Caption = 'Info'
+        OnClick = ButtonInfoClick
+      end
+      object ButtonBye: TButton
+        Left = 320
+        Top = 96
+        Width = 89
+        Height = 33
+        TabOrder = 1
+        Caption = 'Bye'
+        OnClick = ButtonByeClick
+      end
+    end
+    object TPage
+      Caption = 'Bye'
+      object Label7: TLabel
+        Left = 32
+        Top = 24
+        Width = 284
+        Height = 22
+        Caption = 'And once you have been to Italy...'
+        Font.Height = -19
+        Font.Name = 'Arial'
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 69
+        Top = 64
+        Width = 329
+        Height = 185
+        AutoSize = False
+        Caption = 'Paris, London, Berlin, Athen, Madrid, Stockholm. Copenhagen, Brussel, Prague, Warsaw, Munich, Moscow, Geneve, Vienna, Budapest, and many opther european towns are waiting you '
+        Font.Color = 16711935
+        Font.Height = -21
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        ParentFont = False
+      end
+    end
+  end
+  object Panel1: TPanel
+    Top = 280
+    Width = 468
+    Height = 55
+    TabOrder = 1
+    Align = alBottom
+    object ButtonFirst: TButton
+      Left = 45
+      Top = 11
+      Width = 89
+      Height = 33
+      Enabled = False
+      TabOrder = 0
+      Caption = 'First'
+      OnClick = ButtonFirstClick
+    end
+    object ButtonPrevious: TButton
+      Left = 141
+      Top = 11
+      Width = 89
+      Height = 33
+      Enabled = False
+      TabOrder = 1
+      Caption = 'Previous'
+      OnClick = ButtonPreviousClick
+    end
+    object ButtonNext: TButton
+      Left = 237
+      Top = 11
+      Width = 89
+      Height = 33
+      TabOrder = 2
+      Caption = 'Next'
+      OnClick = ButtonNextClick
+    end
+    object ButtonLast: TButton
+      Left = 333
+      Top = 11
+      Width = 89
+      Height = 33
+      TabOrder = 3
+      Caption = 'Last'
+      OnClick = ButtonLastClick
+    end
+  end
+end

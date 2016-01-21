@@ -1,0 +1,110 @@
+object CommDlgForm: TCommDlgForm
+  Left = 269
+  Top = 196
+  Width = 532
+  Height = 356
+  ActiveControl = Memo1
+  BorderStyle = bsFixed
+  Caption = 'Common Dialogs Test'
+  Font.Height = -13
+  Font.Name = 'System'
+  Menu = MainMenu1
+  PixelsPerInch = 96
+  object Memo1: TMemo
+    Left = 13
+    Top = 31
+    Width = 497
+    Height = 249
+    TabOrder = 0
+    TabStop = True
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 32
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 64
+  end
+  object FontDialog1: TFontDialog
+    Font.Height = -13
+    Font.Name = 'System'
+    Left = 96
+  end
+  object ColorDialog1: TColorDialog
+    Left = 128
+  end
+  object MainMenu1: TMainMenu
+    object Open1: TMenuItem
+      Caption = '&Open'
+      object TextFiles1: TMenuItem
+        Caption = 'Existing &Text Files...'
+        OnClick = TextFiles1Click
+      end
+      object Anynewfile1: TMenuItem
+        Caption = '&Any file...'
+        OnClick = Anynewfile1Click
+      end
+      object MultipleSelection1: TMenuItem
+        Caption = '&Multiple Selection...'
+        OnClick = MultipleSelection1Click
+      end
+    end
+    object Save1: TMenuItem
+      Caption = '&Save'
+      object TextFile1: TMenuItem
+        Caption = '&Text File...'
+        OnClick = TextFile1Click
+      end
+      object AnyFile1: TMenuItem
+        Caption = '&Any File...'
+        OnClick = AnyFile1Click
+      end
+    end
+    object Font1: TMenuItem
+      Caption = '&Font'
+      object OnlyTrueType1: TMenuItem
+        Caption = 'Only &TrueType...'
+        OnClick = OnlyTrueType1Click
+      end
+      object NoEffects1: TMenuItem
+        Caption = 'No &Effects...'
+        OnClick = NoEffects1Click
+      end
+      object NoStyle1: TMenuItem
+        Caption = 'No &Style...'
+        OnClick = NoStyle1Click
+      end
+      object Apply1: TMenuItem
+        Caption = '&Apply...'
+        OnClick = Apply1Click
+      end
+    end
+    object Color1: TMenuItem
+      Caption = '&Color'
+      object Standard1: TMenuItem
+        Caption = '&Standard...'
+        OnClick = Standard1Click
+      end
+      object FullOpen1: TMenuItem
+        Caption = '&Full Open...'
+        OnClick = FullOpen1Click
+      end
+      object NoFullOpen1: TMenuItem
+        Caption = '&No Full Open...'
+        OnClick = NoFullOpen1Click
+      end
+    end
+    object Help1: TMenuItem
+      Caption = '&Help'
+      object AboutCommonDialogsTest1: TMenuItem
+        Caption = 'About Common Dialogs Test...'
+        OnClick = AboutCommonDialogsTest1Click
+      end
+    end
+  end
+  object FontDialog2: TFontDialog
+    Font.Height = -13
+    Font.Name = 'System'
+    OnApply = FontDialog2Apply
+    Left = 160
+  end
+end

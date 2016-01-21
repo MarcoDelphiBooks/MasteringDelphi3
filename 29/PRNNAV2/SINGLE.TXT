@@ -1,0 +1,3 @@
+Country: Argentina
+Capital: Buenos Aires
+Continent: South Amrica

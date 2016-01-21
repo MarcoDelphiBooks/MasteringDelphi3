@@ -1,0 +1,36 @@
+Ver 2.0,QBE - Integra Visual Database Builder,0, 0, 1600, 1160,,,,,
+ , , - Distinct & Quote,,,,,
+    3, - Number of Tables,-1, -1, 782, 546, 774, 294,,,,
+EMPLOYEE,EMPLOYEE,464, 8, 619, 225,,,,,
+PROJECT,PROJECT,29, 18, 199, 200,,,,,
+EMPLOYEE_PROJECT,EMPLOYEE_PROJECT,256, 50, 394, 175,,,,,
+    6, - Number of Columns,,,,,,
+PROJ_NAME,PROJECT,                  65,     , ,,1,
+     , - Number of Criteria,,,,,,
+PRODUCT,PROJECT,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+FIRST_NAME,EMPLOYEE,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+LAST_NAME,EMPLOYEE,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+PHONE_EXT,EMPLOYEE,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+JOB_CODE,EMPLOYEE,                   1,     , ,,,
+     , - Number of Criteria,,,,,,
+    2, - Number of Joins,,,,,,
+PROJ_ID,EMPLOYEE_PROJECT,PROJ_ID,PROJECT,          ,          ,,
+EMP_NO,EMPLOYEE,EMP_NO,EMPLOYEE_PROJECT,          ,          ,,
+
+"SELECT Statement"
+,,,,,,,
+SELECT	PROJECT.PROJ_NAME , PROJECT.PRODUCT , 
+	EMPLOYEE.FIRST_NAME , 
+	EMPLOYEE.LAST_NAME , 
+	EMPLOYEE.PHONE_EXT , EMPLOYEE.JOB_CODE
+FROM	EMPLOYEE EMPLOYEE , PROJECT PROJECT , 
+	EMPLOYEE_PROJECT EMPLOYEE_PROJECT
+WHERE	( EMPLOYEE_PROJECT.PROJ_ID = PROJECT.PROJ_ID )
+		AND
+	( EMPLOYEE.EMP_NO = EMPLOYEE_PROJECT.EMP_NO )
+ORDER BY
+	PROJECT.PROJ_NAME,,,,,,,

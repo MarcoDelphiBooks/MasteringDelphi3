@@ -1,0 +1,72 @@
+Country: Argentina
+Capital: Buenos Aires
+Continent: South America
+
+Country: Bolivia
+Capital: La Paz
+Continent: South America
+
+Country: Brazil
+Capital: Brasilia
+Continent: South America
+
+Country: Canada
+Capital: Ottawa
+Continent: North America
+
+Country: Chile
+Capital: Santiago
+Continent: South America
+
+Country: Colombia
+Capital: Bogota
+Continent: South America
+
+Country: Cuba
+Capital: Havana
+Continent: North America
+
+Country: Ecuador
+Capital: Quito
+Continent: South America
+
+Country: El Salvador
+Capital: San Salvador
+Continent: North America
+
+Country: Guyana
+Capital: Georgetown
+Continent: South America
+
+Country: Jamaica
+Capital: Kingston
+Continent: North America
+
+Country: Mexico
+Capital: Mexico City
+Continent: North America
+
+Country: Nicaragua
+Capital: Managua
+Continent: North America
+
+Country: Paraguay
+Capital: Asuncion
+Continent: South America
+
+Country: Peru
+Capital: Lima
+Continent: South America
+
+Country: United States of America
+Capital: Washington
+Continent: North America
+
+Country: Uruguay
+Capital: Montevideo
+Continent: South America
+
+Country: Venezuela
+Capital: Caracas
+Continent: South America
+

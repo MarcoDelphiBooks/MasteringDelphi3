@@ -1,0 +1,15 @@
+STRINGTABLE
+BEGIN
+  1, "Ciao"
+  2, "Tabella Stringhe"
+  11, "Primo messaggio"
+  12, "Secondo messaggio"
+  13, "Terzo messaggio"
+  14, "Quarto messaggio"
+  15, "Quinto messaggio"
+  16, "Sesto messaggio"
+  17, "Settimo messaggio"
+  18, "Ottavo messaggio"
+  19, "Nono messaggio"
+  20, "Decimo messaggio"
+END

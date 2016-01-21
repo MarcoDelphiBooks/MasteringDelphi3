@@ -1,0 +1,152 @@
+unit ClockF;
+
+interface
+
+uses Windows, Classes, Graphics, Forms,
+  Controls, StdCtrls, ExtCtrls, SysUtils;
+
+type
+  TForm1 = class(TForm)
+    Timer1: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+  private
+    Hour, Minute, Second: Word; {current time}
+    OldMinute, OldSecond: Word; {old time}
+    XCenter, YCenter, Radius: Integer; {current size of the form}
+  public
+    procedure DrawHand (XCenter, YCenter, Radius,
+      BackRadius: Integer; Angle: Real);
+    procedure DrawSecond;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.DFM}
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+var
+  HSec: Word;  {temporary value, not used}
+begin
+  {store the old values and get the system time}
+  OldMinute := Minute;
+  OldSecond := Second;
+  DecodeTime (Time, Hour, Minute, Second, HSec);
+  {If minutes have not changed move the seconds hand
+  else redraw the whole clock}
+  if Minute = OldMinute then
+    DrawSecond
+  else
+    Refresh;
+end;
+
+procedure TForm1.FormPaint(Sender: TObject);
+var
+  Angle: Real;
+  I, X, Y, Size: Integer;
+begin
+  {compute the middle of the form}
+  XCenter := ClientWidth div 2;
+  YCenter := ClientHeight div 2;
+  if XCenter > YCenter then
+    Radius := YCenter - 10
+  else
+    Radius := XCenter - 10;
+
+  {0. Draw the hour marks}
+  {Yellow pen and yellow brush, using default raster mode}
+  Canvas.Pen.Color := clYellow;
+  Canvas.Pen.Mode := pmCopy;
+  Canvas.Brush.Color := clYellow;
+  Size := Radius div 50 + 1;
+
+  for I := 0 to 11 do
+  begin
+    Angle := 2 * Pi * I / 12;
+    X := XCenter - Round (Radius * Cos (Angle));
+    Y := YCenter - Round (Radius * Sin (Angle));
+    Canvas.Ellipse (X - Size, Y - Size, X + Size, Y + Size);
+  end;
+
+  {1. Draw the minutes hand}
+  {Blu thick pen, always default mode}
+  Canvas.Pen.Width := 2;
+  Canvas.Pen.Color := clBlue;
+  Angle := 2 * Pi * Minute / 60;
+  DrawHand (XCenter, YCenter,
+    Radius * 90 div 100, 0, Angle);
+
+  {2. Draw the hours hand: Percentage of minutes
+  are added to hour to move the hand smoothly}
+  {Same pen as the minutes hand}
+  Angle := 2 * Pi * (Hour + Minute / 60) / 12;
+  DrawHand (XCenter, YCenter,
+    Radius * 70 div 100, 0, Angle);
+
+  {3. Draw the seconds hand}
+  {Red thin pen, with 'not xor' raster mode}
+  Canvas.Pen.Width := 1;
+  Canvas.Pen.Color := clRed;
+  Canvas.Pen.Mode := pmNotXor;
+  Angle := 2 * Pi * Second / 60;
+  DrawHand (XCenter, YCenter, Radius,
+    Radius * 30 div 100, Angle);
+end;
+
+{draw a line using the current pen. BackRadius holds the
+length of the hand in the opposite direction, usually 0}
+procedure TForm1.DrawHand (XCenter, YCenter,
+  Radius, BackRadius: Integer; Angle: Real);
+begin
+  Angle := (Angle + 3*Pi/2);
+  Canvas.MoveTo (
+    XCenter - Round (BackRadius * Cos (Angle)),
+    YCenter - Round (BackRadius * Sin (Angle)));
+  Canvas.LineTo (
+    XCenter + Round (Radius * Cos (Angle)),
+    YCenter + Round (Radius * Sin (Angle)));
+end;
+
+{Move the seconds hand, i.e. draw a new hand
+removing the current one}
+procedure TForm1.DrawSecond;
+var
+  Angle, OldAngle: Real;
+begin
+  {Red thin pen, with 'not xor' raster mode}
+  {This code is not really needed since this pen should
+  already be active, since this is the last operation of the
+  Paint function}
+  {Canvas.Pen.Width := 1;
+  Canvas.Pen.Color := clRed;
+  Canvas.Pen.Mode := pmNotXor;}
+
+  {delete the old line, drawing over it again}
+  OldAngle := 2 * Pi * OldSecond / 60;
+  DrawHand (XCenter, YCenter, Radius,
+    Radius * 30 div 100, OldAngle);
+
+  {draw the new line}
+  Angle := 2 * Pi * Second / 60;
+  DrawHand (XCenter, YCenter, Radius,
+    Radius * 30 div 100, Angle);
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  {read the time before the form is displayed}
+  {Notice that this code 'simulates' a message...}
+  Timer1Timer (self);
+end;
+
+procedure TForm1.FormResize(Sender: TObject);
+begin
+  Refresh;
+end;
+
+end.

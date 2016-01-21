@@ -1,0 +1,54 @@
+object Form1: TForm1
+  Left = 226
+  Top = 145
+  Width = 435
+  Height = 300
+  ActiveControl = TabSet1
+  Caption = 'Form1'
+  Font.Height = -13
+  Font.Name = 'System'
+  Menu = MainMenu1
+  PixelsPerInch = 96
+  OnCreate = FormCreate
+  object Image1: TImage
+    Width = 427
+    Height = 221
+    Align = alClient
+  end
+  object TabSet1: TTabSet
+    Top = 221
+    Width = 427
+    Height = 33
+    TabOrder = 1
+    Align = alBottom
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Tabs.Strings = (
+      'None')
+    TabIndex = 0
+    OnChange = TabSet1Change
+  end
+  object MainMenu1: TMainMenu
+    Left = 392
+    Top = 8
+    object File1: TMenuItem
+      Caption = '&File'
+      object Open1: TMenuItem
+        Caption = '&Open...'
+        OnClick = Open1Click
+      end
+    end
+    object Help1: TMenuItem
+      Caption = '&Help'
+      object About1: TMenuItem
+        Caption = '&About...'
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Bitmap file (*.bmp)|*.bmp'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofAllowMultiSelect, ofExtensionDifferent, ofPathMustExist, ofFileMustExist]
+    Left = 392
+    Top = 40
+  end
+end

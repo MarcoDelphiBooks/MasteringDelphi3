@@ -1,0 +1,12 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\CLSID\{80A06FA0-7DF2-11D0-98D0-444553540000}]
+@="PascalCopyHook"
+[HKEY_CLASSES_ROOT\CLSID\{80A06FA0-7DF2-11D0-98D0-444553540000}\InprocServer32]
+@="e:\\codeMD3\\21\\PasCHook\\PasCHook.dll"
+"ThreadingModel"="Apartment"
+
+[HKEY_CLASSES_ROOT\Directory\shellex\CopyHookHandlers]
+   @="PCopyHook"
+[HKEY_CLASSES_ROOT\Directory\shellex\CopyHookHandlers\PCopyHook]
+   @="{80A06FA0-7DF2-11D0-98D0-444553540000}"

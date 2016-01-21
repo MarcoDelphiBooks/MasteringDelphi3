@@ -1,0 +1,15 @@
+STRINGTABLE
+BEGIN
+  1, "Hello"
+  2, "String Table"
+  11, "First message"
+  12, "Second message"
+  13, "Third message"
+  14, "Fourth message"
+  15, "Fifth message"
+  16, "Sixth message"
+  17, "Seventh message"
+  18, "Eighth message"
+  19, "Ninth message"
+  20, "Tenth message"
+END

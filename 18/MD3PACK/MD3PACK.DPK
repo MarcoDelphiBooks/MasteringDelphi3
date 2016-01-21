@@ -1,0 +1,44 @@
+package Md3Pack;
+
+{$R *.RES}
+{$R 'Arrow4.dcr'}
+{$R 'Digclock.dcr'}
+{$R 'TabList2.dcr'}
+{$R 'Listdial.dcr'}
+{$ALIGN ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $00400000}
+{$DESCRIPTION 'Mastering Delphi 3 Package'}
+{$DESIGNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  vcl30;
+
+contains
+  Arrow4,
+  Digclock,
+  FontBox,
+  Tablist,
+  TabList2,
+  Listdial;
+
+end.
+ 
